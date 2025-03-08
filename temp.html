@@ -885,8 +885,8 @@
     }
     var canvas = document.querySelector("canvas");
     var ctx = canvas.getContext("2d");
-    var w = 160;
-    var h = 160;
+    var w = 896; // Chiều rộng iPhone 11 Pro Max xoay ngang
+    var h = 414; // Chiều cao iPhone 11 Pro Max xoay ngang
     var minWindowSize = Math.min(window.innerWidth, window.innerHeight);
     var zoom = Math.min(5, Math.floor(minWindowSize / w));
     var pixelRatio = window.devicePixelRatio || 1;

@@ -6,754 +6,340 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>iuuu Vân</title>
      <style>
-         * {
-             margin: 0;
-             padding: 0;
-             box-sizing: border-box
-         }
- 
-         :root {
-             --w: 100px;
-             --h: 50px;
-             --color1: #707dda;
-             --color2: #09135e;
-             --bg: linear-gradient(30deg, var(--color1) 0, var(--color1) 30%, transparent 30%), linear-gradient(-30deg, var(--color1) 0, var(--color1) 30%, transparent 30%), radial-gradient(at center bottom, var(--color2) 0%, var(--color1) 2%, var(--color1) 2%, var(--color1) 6%, var(--color2) 6%, var(--color2) 8%, var(--color1) 8%, var(--color1) 12%, var(--color2) 12%, var(--color2) 15%, var(--color1) 15%, var(--color1) 19%, var(--color2) 19%, var(--color2) 23%, var(--color1) 23%, var(--color1) 28%, var(--color2) 28%, var(--color2) 32%, var(--color1) 32%, var(--color1) 37%, var(--color2) 37%, var(--color2) 42%, var(--color1) 42%, var(--color1) 48%, var(--color2) 48%, var(--color2) 54%, var(--color1) 54%, var(--color1) 61%, var(--color2) 61%, var(--color2) 70%, var(--color1) 70%, var(--color1) 100%)
-         }
- 
-         body {
-             width: 100%;
-             height: 100%;
-             overflow: hidden;
-             background: url('https://i.pinimg.com/736x/6a/2d/10/6a2d10285664b9681906fa228feeb42f.jpg');
-             background-size: 200% auto;
-             background-repeat: repeat-x;
-             animation: scrollBackground 20s linear infinite;
-             background-blend-mode: darken;
-             background-color: rgba(0, 0, 0, 0.7);
- 
-         }
- 
-         @keyframes scrollBackground {
-             from {
-                 background-position: 0 0;
-             }
- 
-             to {
-                 background-position: 100% 0;
-                 /* Di chuyển hình từ phải sang trái */
-             }
-         }
- 
-         #rabbit {
-             position: absolute;
-             right: 10vmin;
-             top: 10vmin;
-             width: 18vmin;
-             height: 18vmin
-         }
- 
-         #rabbit .moon {
-             position: absolute;
-             background: radial-gradient(circle, #ffff99 30%, #f2ff00 70%);
-             width: 200px;
-             height: 200px;
-             border-radius: 50%;
-             box-shadow: 0 0 50px #ffff99;
-             left: -70%;
-             top: 30%;
-             animation: glow 3s infinite alternate;
-         }
- 
-         @keyframes glow {
-             from {
-                 box-shadow: 0 0 30px #ffff99;
-             }
- 
-             to {
-                 box-shadow: 0 0 60px #f2ff00;
-             }
-         }
- 
- 
-         #rabbit div {
-             position: absolute
-         }
- 
-         #rabbit .body {
-             width: 100%;
-             height: 100%;
-             left: 20%;
-             top: 40%;
-         }
- 
-         #rabbit .body1 {
-             width: 60%;
-             height: 40%;
-             top: -12%;
-             left: -7%;
-             background-color: #fff;
-             box-shadow: 0 2px 4px 0 #bbb9a7;
-             border-radius: 50%;
-             transform: rotate(30deg)
-         }
- 
-         #rabbit .body2 {
-             width: 50%;
-             height: 50%;
-             top: -13%;
-             left: 8%;
-             background-color: #fff;
-             box-shadow: 5px 2px 4px 0 #bbb9a7;
-             border-radius: 50%;
-             transform: rotate(30deg)
-         }
- 
-         #rabbit .hand1 {
-             width: 50%;
-             height: 15%;
-             top: 0;
-             left: -32%;
-             background-color: #fff;
-             border-left: 1px solid #bbb9a7;
-             border-radius: 50%;
-             transform: rotate(13deg);
-             animation: hand .8s linear infinite alternate
-         }
- 
-         @keyframes hand {
-             to {
-                 transform: rotate(8deg)
-             }
-         }
- 
-         #rabbit .foot1 {
-             width: 50%;
-             height: 15%;
-             top: 26%;
-             left: 12%;
-             background-color: #fff;
-             border-radius: 50%;
-             transform: rotate(74deg);
-             animation: foot1 .8s linear infinite alternate
-         }
- 
-         @keyframes foot1 {
-             to {
-                 transform: rotate(82deg)
-             }
-         }
- 
-         #rabbit .foot2 {
-             width: 50%;
-             height: 15%;
-             top: 15%;
-             left: 24%;
-             background-color: #fff;
-             border-radius: 50%;
-             transform: rotate(70deg);
-             animation: foot2 .8s linear infinite alternate
-         }
- 
-         @keyframes foot2 {
-             to {
-                 transform: rotate(76deg)
-             }
-         }
- 
-         #rabbit .tail {
-             width: 15%;
-             height: 15%;
-             top: 0;
-             left: 51%;
-             background-color: #fff;
-             border-radius: 50%
-         }
- 
-         #rabbit .head {
-             width: 40%;
-             height: 40%;
-             top: 0;
-             left: 0;
-             background-image: url('./z6385719612785_36592f4fb41e729f521c95b8f87e3072.jpg');
-             background-size: cover;
-             background-position: center;
-             border-radius: 50%;
-             border-bottom: 1px solid rgb(133, 130, 130)
-         }
- 
-         #rabbit .head::after {
-             content: '';
-             position: absolute;
-             width: 2.5%;
-             height: 20%;
-             background: #a6aaa4;
-             box-shadow: 0 0 2px 0 rgb(53, 52, 52);
-             border-radius: 12.5%;
-             left: 35%;
-             top: 50%;
-             transform: rotate(-64deg)
-         }
- 
-         /* #rabbit .mouth {
-             width: 45%;
-             height: 62.5%;
-             top: 32.5%;
-             left: -7.5%;
-             background: #fff;
-             border-left: 1px solid #ccc;
-             border-radius: 50%;
-             transform: rotate(-60deg)
-         } */
- 
-         #rabbit .mouth::before {
-             content: '';
-             position: absolute;
-             left: 5%;
-             top: 7.5%;
-             width: 7.5%;
-             height: 2.5%;
-             background: #a6aaa4;
-             transform: rotate(84deg)
-         }
- 
-         #rabbit .ear1 {
-             width: 125%;
-             height: 37.5%;
-             top: -22.5%;
-             right: -75%;
-             background-color: #fff;
-             border-radius: 50%;
-             transform: rotate(-30deg)
-         }
- 
-         #rabbit .ear2 {
-             width: 125%;
-             height: 32.5%;
-             top: 17.5%;
-             right: -95%;
-             background-color: #fff;
-             border-bottom: 1px solid #8f8c74;
-             border-radius: 50%
-         }
- 
-         #rabbit .ear2::after {
-             content: '';
-             position: absolute;
-             right: 5%;
-             bottom: 5%;
-             width: 70%;
-             height: 70%;
-             border-radius: 50%;
-             background: pink
-         }
- 
-         #rabbit_little {
-             --footH: 2.5vmin;
-             position: absolute;
-             left: 40%;
-             bottom: 20%;
-             font-size: 1.2vmin;
-             width: 12vmin;
-             height: 7vmin;
-             border-radius: 41% 59% 41% 41% / 54% 60% 40% 41%;
-             background-color: #fff;
-             background-image: radial-gradient(circle at 80% 48%, #000 0%, #000 4%, transparent 4%);
-             filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
-             animation: rabbit_little 1s linear infinite;
-         }
- 
-         @keyframes rabbit_little {
-             20% {
-                 --footH: 2.5vmin;
-                 transform: rotate(-10deg) translate(1em, -2em) scale(2);
-                 box-shadow: -0.2em 3em 0 -1em #928282
-             }
- 
-             40% {
-                 --footH: 2.5vmin;
-                 transform: rotate(10deg) translate(3em, -4em) scale(2);
-                 box-shadow: -0.2em 3.25em 0 -1.1em #928282
-             }
- 
-             60%,
-             75% {
-                 --footH: 0;
-                 transform: rotate(0) translate(4em, 0) scale(2);
-                 box-shadow: -0.2em 1em 0 -0.75em #928282
-             }
-         }
- 
-         #rabbit_little::before {
-             content: '';
-             position: absolute;
-             right: 20%;
-             top: -70%;
-             --earW: 1.65vmin;
-             width: var(--earW);
-             height: 6vmin;
-             border-radius: 50%;
-             background: #fff;
-             transform: rotate(-20deg);
-             box-shadow: -2vmin .2vmin 0px .3vmin #fff;
-             z-index: 1;
-         }
- 
-         #rabbit_little::after {
-             content: '';
-             position: absolute;
-             left: 3%;
-             bottom: -.3vmin;
-             width: 2.5vmin;
-             height: var(--footH);
-             border-radius: 50%;
-             background: #fff;
-             box-shadow: 7vmin 0 0px .05vmin #fff
-         }
- 
-         #rabbit_little>img {
-             position: absolute;
-             right: 0vmin;
-             top: 0.8vmin;
-             width: 5vmin;
-             height: 5vmin;
-             border-radius: 50%;
-             object-fit: cover;
-         }
- 
-         #rabbit_little>p {
-             position: absolute;
-             left: -1vmin;
-             top: .8vmin;
-             width: 2.5vmin;
-             height: 2.5vmin;
-             border-radius: 50%;
-             background: #fff
-         }
- 
-         #rabbit_little>span {
-             position: absolute;
-             left: 20%;
-             top: 40%;
-             width: 2.5vmin;
-             height: 2.5vmin;
- 
-         }
- 
-         #rabbit_little>b {
-             position: absolute;
-             left: 45%;
-             top: 50%;
-             width: 2.5vmin;
-             height: 2.5vmin;
-             animation: pulse2 1.5s infinite ease-in-out;
- 
-         }
- 
-         #rabbit_little>.item {
-             position: absolute;
-             left: 55%;
-             top: 10%;
-             width: 2.5vmin;
-             height: 2.5vmin;
- 
-         }
- 
-         @keyframes pulse2 {
-             0% {
-                 transform: scale(1);
-                 opacity: 1;
-             }
- 
-             50% {
-                 transform: scale(2);
-                 opacity: 0.6;
-             }
- 
-             100% {
-                 transform: scale(1);
-                 opacity: 1;
-             }
-         }
- 
-         .cloud {
-             position: absolute;
-             --cloudW: 13.1vw;
-             --cloudH: 5.5vw;
-             --time: 1s;
-             --color: #fff;
-             --clounLine: .5vw;
-             left: calc(0px - var(--cloudW));
-             top: var(--t);
-             color: var(--color);
-             width: var(--cloudW);
-             height: var(--cloudH);
-             transform: scale(var(--scale)) rotateY(var(--rotateY));
-             animation-name: cloud;
-             animation-duration: 15s;
-             animation-delay: var(--time);
-             animation-timing-function: cubic-bezier(.27, .42, .58, .77);
-             animation-iteration-count: infinite
-         }
- 
-         @keyframes cloud {
-             to {
-                 left: 100vw
-             }
-         }
- 
-         .cloud_reverse {
-             left: calc(100vw + var(--cloudW));
-             animation-name: cloud_reverse
-         }
- 
-         @keyframes cloud_reverse {
-             to {
-                 left: calc(0px - var(--cloudW))
-             }
-         }
- 
-         .cloud div {
-             position: absolute
-         }
- 
-         .cloud1 {
-             width: 31.57%;
-             height: 87.5%;
-             border-radius: 55% 40% 40% 50%;
-             border: var(--clounLine) solid currentColor;
-             border-right: none
-         }
- 
-         .cloud1::after {
-             content: '';
-             position: absolute;
-             right: 0px;
-             bottom: -2.857%;
-             width: 50%;
-             height: 50%;
-             border-radius: 50% 50% 50% 0;
-             border: var(--clounLine) solid currentColor;
-             border-left: none;
-             border-bottom: none
-         }
- 
-         .cloud2 {
-             left: 29.4%;
-             top: -8%;
-             width: 48%;
-             height: 60%;
-             border-radius: 50%;
-             border-top: var(--clounLine) solid currentColor
-         }
- 
-         .cloud3 {
-             right: 0;
-             top: 5%;
-             width: 42.11%;
-             height: 112.5%;
-             border-radius: 50% 50% 50% 40%;
-             border: var(--clounLine) solid currentColor;
-             border-left: none
-         }
- 
-         .cloud3::after {
-             content: '';
-             position: absolute;
-             left: 2.5%;
-             bottom: calc(0px - var(--clounLine));
-             width: 50%;
-             height: 50%;
-             border-radius: 50% 50% 0% 50%;
-             border: var(--clounLine) solid currentColor;
-             border-right: none
-         }
- 
-         .cloud4 {
-             left: 20%;
-             bottom: -43.75%;
-             width: 40%;
-             height: 62.5%;
-             border-radius: 50%;
-             border-bottom: var(--clounLine) solid currentColor;
-             transform: rotate(-10deg)
-         }
- 
-         .cloud5 {
-             left: -42.105%;
-             top: 50%;
-             width: 42.105%;
-             height: 87.5%;
-             border-radius: 90% 0% 50% 50%;
-             border-top: var(--clounLine) solid currentColor;
-             transform: rotate(10deg)
-         }
- 
-         .cloud6 {
-             left: -18.422%;
-             bottom: -40%;
-             width: 42.105%;
-             height: 50%;
-             border-radius: 0% 0% 50% 50%;
-             border-bottom: var(--clounLine) solid currentColor;
-             transform: rotate(10deg)
-         }
- 
-         .cloud6::after {
-             content: '';
-             position: absolute;
-             left: -63%;
-             top: 40%;
-             width: 75%;
-             height: 100%;
-             border-radius: 40% 60% 0 0;
-             border-top: var(--clounLine) solid currentColor
-         }
- 
-         .container {
-             position: absolute;
-             left: 0;
-             top: 0;
-             transform: scale(0.8);
-         }
- 
-         canvas {
-             display: block;
-             margin: 0 auto;
-             cursor: move
-         }
- 
-         #app {
-             height: 100%;
-             display: flex;
-             align-items: center;
-             justify-content: center;
-         }
- 
-         .card {
-             top: -100px;
-             left: 15%;
-             transition: transform 0.3s cubic-bezier(0.74, -0.03, 0.05, 1.24);
-             width: 160px;
-             height: 95px;
-             will-change: transform;
-             transform-origin: 50% 100%;
-             transform: scale(0);
-             filter: blur(10px);
-             background: white;
-             border-radius: 18px;
-             box-shadow:
-                 0 0 0 2px #b0dbbf,
-                 1px 4px 5px 4px #ededed54;
-             padding: 2px;
-             animation-duration: 0.3s;
-             animation-delay: 0.1s;
-             animation-fill-mode: both;
-             overflow: hidden;
-             z-index: 10;
-         }
- 
-         #app:has(.hover-card:hover)>.reference>.card {
-             transform: scale(1);
-             animation-name: coolfadeIn;
-         }
- 
-         .card.active {
-             transform: scale(1);
-             animation: coolfadeIn 0.3s forwards;
-             filter: blur(0);
-         }
- 
-         /* 
-         .card:hover {
-             pointer-events: all;
-         } */
- 
-         .bg-map {
-             top: 0;
-             left: 0;
-             width: 100%;
-             height: 100%;
-             position: absolute;
-             z-index: 0;
-             /* background-image: place your image */
-             background-position: 15px -32px;
-             background-repeat: no-repeat;
-             background-size: cover;
-         }
- 
-         .elements {
-             height: 100%;
-             display: flex;
-             flex-direction: column;
-             gap: 20px;
-         }
- 
-         .details {
-             z-index: 1;
-             margin-bottom: -10%;
-             margin-top: -12%;
-             flex: 1 1 0;
-             background: #e6daec;
-             filter: blur(6px);
-         }
- 
-         .description {
-             padding: 15px;
-             z-index: 1;
-         }
- 
-         .main-title {
-             font-size: 1.2rem;
-             color: #4e8e80;
-             font-weight: 600;
-         }
- 
-         .second-title {
-             font-size: 1em;
-             color: #5e7b83;
-             font-weight: 500;
-         }
- 
-         .inner-card {
-             position: relative;
-             border-radius: calc(18px - 2%);
-             height: 100%;
-             width: 100%;
-             border: 2px solid #2d2d2d45;
-             background: #eadaec;
-             overflow: hidden;
-         }
- 
-         .blur-item {
-             left: 0;
-             top: 0;
-             min-width: 60px;
-             filter: blur(10px);
-             background: #ecdae6;
-             z-index: -1;
-             height: 110%;
-         }
- 
-         .relative {
-             position: relative;
-         }
- 
-         .absolute {
-             position: absolute;
-         }
- 
-         .location {
-             background-color: #642266;
-             top: 5%;
-             z-index: 1000;
-             right: 5%;
-             width: 20px;
-             height: 20px;
-             border-radius: 50%;
-             box-shadow: 0 0 10px 7px #c1c1c180;
-             border: 5px solid white;
-             animation: pulse 3s infinite;
-         }
- 
-         @keyframes pulse {
-             0% {
-                 transform: scale(0.95);
-                 box-shadow:
-                     0 0 0 0 rgba(72, 72, 72, 0.7),
-                     0 0 8px 5px #d9d9d980;
-             }
- 
-             70% {
-                 transform: scale(1);
-                 box-shadow:
-                     0 0 0 10px rgba(72, 72, 72, 0),
-                     0 0 8px 5px #d9d9d980;
-             }
- 
-             100% {
-                 transform: scale(0.95);
-                 box-shadow:
-                     0 0 0 0 rgba(72, 72, 72, 0),
-                     0 0 8px 5px #d9d9d980;
-             }
-         }
- 
-         @keyframes coolfadeIn {
-             0% {
-                 filter: brightness(1) blur(10px);
-             }
- 
-             10% {
-                 filter: brightness(1) blur(20px);
-             }
- 
-             100% {
-                 filter: brightness(1) blur(0px);
-             }
-         }
- 
-         @keyframes movingClouds {
-             from {
-                 transform: translateX(-100px);
-             }
- 
-             to {
-                 transform: translateX(100px);
-             }
-         }
- 
-         .cloudCard {
-             z-index: 1;
-             position: absolute;
-             border-radius: 50%;
-             animation-name: movingClouds;
-             animation-timing-function: ease;
-             animation-iteration-count: infinite;
-         }
- 
-         .cloudCard:nth-child(1) {
-             animation-duration: 45s;
-             height: 1em;
-             width: 1.4em;
-             top: 3.5em;
-             left: 50%;
-             filter: blur(0.125em) drop-shadow(0.438em 0.188em #ffffffae) drop-shadow(-0.625em 0.313em #ffffffae);
-             background: linear-gradient(to top right, #ffffffae, #ffffffae);
-             transition: 0.4s;
-         }
- 
-         .cloudCard:nth-child(2) {
-             animation-duration: 30s;
-             top: 0.325em;
-             right: -1em;
-             width: 4.075em;
-             height: 1.575em;
-             background: #ebebebdb;
-             filter: blur(0.425em) drop-shadow(-0.313em 0.812em #e0dfdfae) drop-shadow(-1.625em 0.812em #bbbbbbae) drop-shadow(-1em 0.063em #cfcfcfae);
-         }
- 
-         .cloudCard:nth-child(3) {
-             animation-duration: 60s;
-             top: 2.45em;
-             right: 4.938em;
-             width: 1.075em;
-             height: 0.575em;
-             background: #ffffff;
-             filter: blur(0.125em) drop-shadow(0.438em 0.188em #ffffffae) drop-shadow(-0.625em 0.313em #ffffffae);
-             transition: 0.8s;
-         }
- 
-         .cloudCard:nth-child(4) {
-             animation-duration: 40s;
-             top: 4.45em;
-             right: 4.938em;
-             width: 1.075em;
-             height: 0.375em;
-             background: #ffffff;
-             filter: blur(0.125em) drop-shadow(0.438em 0.188em #ffffffae) drop-shadow(-0.625em 0.313em #ffffffae);
-             transition: 0.8s;
-         }
-     </style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        :root {
+            --w: 100px;
+            --h: 50px;
+            --color1: #707dda;
+            --color2: #09135e;
+            --bg: linear-gradient(30deg, var(--color1) 0, var(--color1) 30%, transparent 30%), 
+                  linear-gradient(-30deg, var(--color1) 0, var(--color1) 30%, transparent 30%), 
+                  radial-gradient(at center bottom, var(--color2) 0%, var(--color1) 2%, var(--color1) 2%, var(--color1) 6%, var(--color2) 6%, var(--color2) 8%, var(--color1) 8%, var(--color1) 12%, var(--color2) 12%, var(--color2) 15%, var(--color1) 15%, var(--color1) 19%, var(--color2) 19%, var(--color2) 23%, var(--color1) 23%, var(--color1) 28%, var(--color2) 28%, var(--color2) 32%, var(--color1) 32%, var(--color1) 37%, var(--color2) 37%, var(--color2) 42%, var(--color1) 42%, var(--color1) 48%, var(--color2) 48%, var(--color2) 54%, var(--color1) 54%, var(--color1) 61%, var(--color2) 61%, var(--color2) 70%, var(--color1) 70%, var(--color1) 100%);
+        }
+    
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: url('https://i.pinimg.com/736x/6a/2d/10/6a2d10285664b9681906fa228feeb42f.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation: scrollBackground 20s linear infinite;
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+    
+        @keyframes scrollBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 0; }
+        }
+    
+        #rabbit {
+            position: absolute;
+            right: 5vw;
+            top: 5vh;
+            width: 20vw;
+            height: 20vh;
+        }
+    
+        #rabbit .moon {
+            position: absolute;
+            background: radial-gradient(circle, #ffff99 30%, #f2ff00 70%);
+            width: 25vw;
+            height: 25vh;
+            border-radius: 50%;
+            box-shadow: 0 0 5vw #ffff99;
+            left: -70%;
+            top: 20%;
+            animation: glow 3s infinite alternate;
+        }
+    
+        @keyframes glow {
+            from { box-shadow: 0 0 3vw #ffff99; }
+            to { box-shadow: 0 0 6vw #f2ff00; }
+        }
+    
+        #rabbit div { position: absolute; }
+    
+        #rabbit .body {
+            width: 100%;
+            height: 100%;
+            left: 20%;
+            top: 40%;
+        }
+    
+        #rabbit .body1 {
+            width: 60%;
+            height: 40%;
+            top: -12%;
+            left: -7%;
+            background-color: #fff;
+            box-shadow: 0 2px 4px 0 #bbb9a7;
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+    
+        #rabbit .body2 {
+            width: 50%;
+            height: 50%;
+            top: -13%;
+            left: 8%;
+            background-color: #fff;
+            box-shadow: 5px 2px 4px 0 #bbb9a7;
+            border-radius: 50%;
+            transform: rotate(30deg);
+        }
+    
+        #rabbit .hand1 {
+            width: 50%;
+            height: 15%;
+            top: 0;
+            left: -32%;
+            background-color: #fff;
+            border-left: 1px solid #bbb9a7;
+            border-radius: 50%;
+            transform: rotate(13deg);
+            animation: hand 0.8s linear infinite alternate;
+        }
+    
+        @keyframes hand {
+            to { transform: rotate(8deg); }
+        }
+    
+        #rabbit .foot1 {
+            width: 50%;
+            height: 15%;
+            top: 26%;
+            left: 12%;
+            background-color: #fff;
+            border-radius: 50%;
+            transform: rotate(74deg);
+            animation: foot1 0.8s linear infinite alternate;
+        }
+    
+        @keyframes foot1 {
+            to { transform: rotate(82deg); }
+        }
+    
+        #rabbit .foot2 {
+            width: 50%;
+            height: 15%;
+            top: 15%;
+            left: 24%;
+            background-color: #fff;
+            border-radius: 50%;
+            transform: rotate(70deg);
+            animation: foot2 0.8s linear infinite alternate;
+        }
+    
+        @keyframes foot2 {
+            to { transform: rotate(76deg); }
+        }
+    
+        #rabbit .tail {
+            width: 15%;
+            height: 15%;
+            top: 0;
+            left: 51%;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+    
+        #rabbit .head {
+            width: 40%;
+            height: 40%;
+            top: 0;
+            left: 0;
+            background-image: url('./z6385719612785_36592f4fb41e729f521c95b8f87e3072.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            border-bottom: 1px solid rgb(133, 130, 130);
+        }
+    
+        #rabbit .ear1 {
+            width: 125%;
+            height: 37.5%;
+            top: -22.5%;
+            right: -75%;
+            background-color: #fff;
+            border-radius: 50%;
+            transform: rotate(-30deg);
+        }
+    
+        #rabbit .ear2 {
+            width: 125%;
+            height: 32.5%;
+            top: 17.5%;
+            right: -95%;
+            background-color: #fff;
+            border-bottom: 1px solid #8f8c74;
+            border-radius: 50%;
+        }
+    
+        #rabbit_little {
+            --footH: 2.5vmin;
+            position: absolute;
+            left: 40vw;
+            bottom: 10vh;
+            width: 15vw;
+            height: 10vh;
+            border-radius: 41% 59% 41% 41% / 54% 60% 40% 41%;
+            background-color: #fff;
+            background-image: radial-gradient(circle at 80% 48%, #000 0%, #000 4%, transparent 4%);
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+            animation: rabbit_little 1s linear infinite;
+        }
+    
+        @keyframes rabbit_little {
+            20% { transform: rotate(-10deg) translate(1em, -2em) scale(1.5); }
+            40% { transform: rotate(10deg) translate(3em, -4em) scale(1.5); }
+            60%, 75% { transform: rotate(0) translate(4em, 0) scale(1.5); }
+        }
+    
+        .cloud {
+            position: absolute;
+            --cloudW: 15vw;
+            --cloudH: 6vh;
+            --time: 1s;
+            --color: #fff;
+            --clounLine: .5vw;
+            left: calc(0px - var(--cloudW));
+            top: var(--t);
+            color: var(--color);
+            width: var(--cloudW);
+            height: var(--cloudH);
+            transform: scale(var(--scale)) rotateY(var(--rotateY));
+            animation: cloud 15s cubic-bezier(.27, .42, .58, .77) infinite;
+            animation-delay: var(--time);
+        }
+    
+        @keyframes cloud {
+            to { left: 100vw; }
+        }
+    
+        .cloud_reverse {
+            left: calc(100vw + var(--cloudW));
+            animation-name: cloud_reverse;
+        }
+    
+        @keyframes cloud_reverse {
+            to { left: calc(0px - var(--cloudW)); }
+        }
+    
+        .cloud div { position: absolute; }
+    
+        .cloud1 {
+            width: 31.57%;
+            height: 87.5%;
+            border-radius: 55% 40% 40% 50%;
+            border: var(--clounLine) solid currentColor;
+            border-right: none;
+        }
+    
+        .cloud2 {
+            left: 29.4%;
+            top: -8%;
+            width: 48%;
+            height: 60%;
+            border-radius: 50%;
+            border-top: var(--clounLine) solid currentColor;
+        }
+    
+        .cloud3 {
+            right: 0;
+            top: 5%;
+            width: 42.11%;
+            height: 112.5%;
+            border-radius: 50% 50% 50% 40%;
+            border: var(--clounLine) solid currentColor;
+            border-left: none;
+        }
+    
+        .card {
+            position: absolute;
+            top: 5vh;
+            left: 10vw;
+            width: 20vw;
+            height: 15vh;
+            background: white;
+            border-radius: 2vw;
+            box-shadow: 0 0 0 0.5vw #b0dbbf, 1px 4px 5px 4px #ededed54;
+            transform: scale(0);
+            filter: blur(1vw);
+            transition: transform 0.3s cubic-bezier(0.74, -0.03, 0.05, 1.24);
+            z-index: 10;
+        }
+    
+        .card.active {
+            transform: scale(1);
+            filter: blur(0);
+            animation: coolfadeIn 0.3s forwards;
+        }
+    
+        @keyframes coolfadeIn {
+            0% { filter: brightness(1) blur(1vw); }
+            10% { filter: brightness(1) blur(2vw); }
+            100% { filter: brightness(1) blur(0); }
+        }
+    
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    
+        /* Media Query cho iPhone 11 Pro Max xoay ngang (896px x 414px) */
+        @media only screen and (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
+            body {
+                background-size: 100% 100%;
+            }
+    
+            #rabbit {
+                right: 2vw;
+                top: 2vh;
+                width: 18vw;
+                height: 18vh;
+            }
+    
+            #rabbit .moon {
+                width: 20vw;
+                height: 20vh;
+                box-shadow: 0 0 4vw #ffff99;
+            }
+    
+            #rabbit_little {
+                left: 35vw;
+                bottom: 5vh;
+                width: 12vw;
+                height: 8vh;
+            }
+    
+            .cloud {
+                --cloudW: 12vw;
+                --cloudH: 5vh;
+            }
+    
+            .card {
+                top: 2vh;
+                left: 5vw;
+                width: 25vw;
+                height: 20vh;
+                border-radius: 1.5vw;
+            }
+    
+            canvas {
+                width: 896px;
+                height: 414px;
+            }
+        }
+    </style>
  </head>
  
  <body>
