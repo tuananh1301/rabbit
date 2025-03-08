@@ -41,24 +41,24 @@
         }
     
         #rabbit {
-            position: absolute;
-            right: 5vw;
-            top: 5vh;
-            width: 20vw;
-            height: 20vh;
-        }
-    
-        #rabbit .moon {
-            position: absolute;
-            background: radial-gradient(circle, #ffff99 30%, #f2ff00 70%);
-            width: 25vw;
-            height: 25vh;
-            border-radius: 50%;
-            box-shadow: 0 0 5vw #ffff99;
-            left: -70%;
-            top: 20%;
-            animation: glow 3s infinite alternate;
-        }
+    position: absolute;
+    right: 5vw;
+    top: 5vh;
+    width: 15vw; /* Giảm từ 20vw xuống 15vw */
+    height: 15vh; /* Giảm từ 20vh xuống 15vh */
+}
+
+#rabbit .moon {
+    position: absolute;
+    background: radial-gradient(circle, #ffff99 30%, #f2ff00 70%);
+    width: 18vw; /* Giảm từ 25vw xuống 18vw */
+    height: 18vh; /* Giảm từ 25vh xuống 18vh */
+    border-radius: 50%;
+    box-shadow: 0 0 5vw #ffff99;
+    left: -70%;
+    top: 20%;
+    animation: glow 3s infinite alternate;
+}
     
         @keyframes glow {
             from { box-shadow: 0 0 3vw #ffff99; }
@@ -263,19 +263,19 @@
         }
     
         .card {
-            position: absolute;
-            top: 5vh;
-            left: 10vw;
-            width: 20vw;
-            height: 15vh;
-            background: white;
-            border-radius: 2vw;
-            box-shadow: 0 0 0 0.5vw #b0dbbf, 1px 4px 5px 4px #ededed54;
-            transform: scale(0);
-            filter: blur(1vw);
-            transition: transform 0.3s cubic-bezier(0.74, -0.03, 0.05, 1.24);
-            z-index: 10;
-        }
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    width: 15vw; /* Giảm từ 20vw xuống 15vw */
+    height: 10vh; /* Giảm từ 15vh xuống 10vh */
+    background: white;
+    border-radius: 2vw;
+    box-shadow: 0 0 0 0.5vw #b0dbbf, 1px 4px 5px 4px #ededed54;
+    transform: scale(0);
+    filter: blur(1vw);
+    transition: transform 0.3s cubic-bezier(0.74, -0.03, 0.05, 1.24);
+    z-index: 10;
+}
     
         .card.active {
             transform: scale(1);
@@ -297,48 +297,48 @@
     
         /* Media Query cho iPhone 11 Pro Max xoay ngang (896px x 414px) */
         @media only screen and (max-width: 896px) and (max-height: 414px) and (orientation: landscape) {
-            body {
-                background-size: 100% 100%;
-            }
-    
-            #rabbit {
-                right: 2vw;
-                top: 2vh;
-                width: 18vw;
-                height: 18vh;
-            }
-    
-            #rabbit .moon {
-                width: 20vw;
-                height: 20vh;
-                box-shadow: 0 0 4vw #ffff99;
-            }
-    
-            #rabbit_little {
-                left: 35vw;
-                bottom: 5vh;
-                width: 12vw;
-                height: 8vh;
-            }
-    
-            .cloud {
-                --cloudW: 12vw;
-                --cloudH: 5vh;
-            }
-    
-            .card {
-                top: 2vh;
-                left: 5vw;
-                width: 25vw;
-                height: 20vh;
-                border-radius: 1.5vw;
-            }
-    
-            canvas {
-                width: 896px;
-                height: 414px;
-            }
-        }
+    body {
+        background-size: 100% 100%;
+    }
+
+    #rabbit {
+        right: 2vw;
+        top: 2vh;
+        width: 12vw; /* Giảm từ 18vw xuống 12vw */
+        height: 12vh; /* Giảm từ 18vh xuống 12vh */
+    }
+
+    #rabbit .moon {
+        width: 15vw; /* Giảm từ 20vw xuống 15vw */
+        height: 15vh; /* Giảm từ 20vh xuống 15vh */
+        box-shadow: 0 0 4vw #ffff99;
+    }
+
+    #rabbit_little {
+        left: 35vw;
+        bottom: 5vh;
+        width: 10vw; /* Giảm từ 12vw xuống 10vw */
+        height: 6vh; /* Giảm từ 8vh xuống 6vh */
+    }
+
+    .cloud {
+        --cloudW: 10vw; /* Giảm từ 12vw xuống 10vw */
+        --cloudH: 4vh; /* Giảm từ 5vh xuống 4vh */
+    }
+
+    .card {
+        top: 2vh;
+        left: 5vw;
+        width: 20vw; /* Giảm từ 25vw xuống 20vw */
+        height: 15vh; /* Giảm từ 20vh xuống 15vh */
+        border-radius: 1.5vw;
+    }
+
+    canvas {
+        width: 896px;
+        height: 414px;
+    }
+}
     </style>
  </head>
  
