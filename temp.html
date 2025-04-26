@@ -37,6 +37,18 @@
     </div>
   </body>
   <script>
+    var w = 896; // Chiều rộng iPhone 11 Pro Max xoay ngang
+    var h = 414; // Chiều cao iPhone 11 Pro Max xoay ngang
+    var minWindowSize = Math.min(window.innerWidth, window.innerHeight);
+    var zoom = Math.min(5, Math.floor(minWindowSize / w));
+    var pixelRatio = window.devicePixelRatio || 1;
+    zoom *= pixelRatio;
+    var canvasWidth = (canvas.width = w * zoom);
+    var canvasHeight = (canvas.height = h * zoom);
+    if (pixelRatio > 1) {
+      canvas.style.width = canvasWidth / pixelRatio + "px";
+      canvas.style.height = canvasHeight / pixelRatio + "px";
+    }
     var TAU = Math.PI * 2;
     function extend(a, b) {
       for (var prop in b) {
@@ -882,20 +894,6 @@
         scale: { z: -1 },
         rotate: { x: -TAU / 8 },
       });
-    }
-    var canvas = document.querySelector("canvas");
-    var ctx = canvas.getContext("2d");
-    var w = 896; // Chiều rộng iPhone 11 Pro Max xoay ngang
-    var h = 414; // Chiều cao iPhone 11 Pro Max xoay ngang
-    var minWindowSize = Math.min(window.innerWidth, window.innerHeight);
-    var zoom = Math.min(5, Math.floor(minWindowSize / w));
-    var pixelRatio = window.devicePixelRatio || 1;
-    zoom *= pixelRatio;
-    var canvasWidth = (canvas.width = w * zoom);
-    var canvasHeight = (canvas.height = h * zoom);
-    if (pixelRatio > 1) {
-      canvas.style.width = canvasWidth / pixelRatio + "px";
-      canvas.style.height = canvasHeight / pixelRatio + "px";
     }
     var isRotating = true;
     var madColor = {
